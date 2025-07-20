@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EditorDefinitions>
+	<PolyGroups ModuleName="Simultaneous Localization and Mapping" ModuleVersion="1.0 (By Vladimir)">
+		<PolyGroup Name="SLAM" BlockFamily="DataOperations">
+			<Parameter Name="coefficient" Direction="Input" DataType="Single" DefaultValue="0" Identification="coefficient.png"/>
+			<Parameter Name="angle" Direction="Input" DataType="Single" DefaultValue="0" Identification="angle.png"/>
+			<Parameter Name="encChange" Direction="Input" DataType="Single" DefaultValue="0" Identification="encChange.png"/>
+			<Parameter Name="resXodom" Direction="Input" DataType="Single" DefaultValue="0" Identification="Xodom.png"/>
+			<Parameter Name="resYodom" Direction="Input" DataType="Single" DefaultValue="0" Identification="Yodom.png"/>
+			<Parameter Name="Xodom" Direction="Output" DataType="Single" Identification="Xodom.png"/>
+			<Parameter Name="Yodom" Direction="Output" DataType="Single" Identification="Yodom.png"/>
+			<Parameter Name="horizViewAngle" Direction="Input" DataType="Single" DefaultValue="0" Identification="horizViewAngle.png"/>
+			<Parameter Name="vertViewAngle" Direction="Input" DataType="Single" DefaultValue="0" Identification="vertViewAngle.png"/>
+			<Parameter Name="cameraWidth" Direction="Input" DataType="Single" DefaultValue="0" Identification="cameraWidth.png"/>
+			<Parameter Name="cameraHeight" Direction="Input" DataType="Single" DefaultValue="0" Identification="cameraHeight.png"/>
+			<Parameter Name="cameraTiltAngle" Direction="Input" DataType="Single" DefaultValue="0" Identification="cameraTiltAngle.png"/>
+			<Parameter Name="objToLensHeight" Direction="Input" DataType="Single" DefaultValue="0" Identification="objToLensHeight.png"/>
+			<Parameter Name="lensToMotorProjection" Direction="Input" DataType="Single" DefaultValue="0" Identification="lensToMotorProjection.png"/>
+			<Parameter Name="gyroAngle" Direction="Input" DataType="Single" DefaultValue="0" Identification="gyroAngle.png"/>
+			<Parameter Name="cameraX" Direction="Input" DataType="Single" DefaultValue="0" Identification="cameraX.png"/>
+			<Parameter Name="cameraY" Direction="Input" DataType="Single" DefaultValue="0" Identification="cameraY.png"/>
+			<Parameter Name="forwardShift" Direction="Output" DataType="Single" Identification="forwardShift.png"/>
+			<Parameter Name="sideShift" Direction="Output" DataType="Single" Identification="sideShift.png"/>
+			<Parameter Name="objectX" Direction="Output" DataType="Single" Identification="objectX.png"/>
+			<Parameter Name="objectY" Direction="Output" DataType="Single" Identification="objectY.png"/>
+			<Parameter Name="Input" Direction="Input" DataType="Single" DefaultValue="0" Identification="Input.png"/>
+			<Parameter Name="Output" Direction="Output" DataType="Single" Identification="Output.png"/>
+			<Parameter Name="X" Direction="Input" DataType="Single" DefaultValue="0" Identification="X.png"/>
+			<Parameter Name="Y" Direction="Input" DataType="Single" DefaultValue="0" Identification="Y.png"/>
+			<Parameter Name="leftDownX" Direction="Input" DataType="Single" DefaultValue="0" Identification="leftDownX.png"/>
+			<Parameter Name="leftDownY" Direction="Input" DataType="Single" DefaultValue="0" Identification="leftDownY.png"/>
+			<Parameter Name="rightUpX" Direction="Input" DataType="Single" DefaultValue="0" Identification="rightUpX.png"/>
+			<Parameter Name="rightUpY" Direction="Input" DataType="Single" DefaultValue="0" Identification="rightUpY.png"/>
+			<Parameter Name="isInRect" Direction="Output" DataType="Boolean" Identification="isInRect.png"/>
+
+			<Category Name="Odometry">
+				<Block>
+					<Mode>Odometry Config</Mode>
+					<Reference Type="VILib" Name="configure.vix"/>
+					<ParameterReference Name="coefficient"/>
+					<PaletteInfo Weight="0.5"/>
+				</Block>
+				<Block>
+					<Mode>Read</Mode>
+					<Reference Type="VILib" Name="reading.vix"/>
+					<ParameterReference Name="Xodom"/>
+					<ParameterReference Name="Yodom"/>
+				</Block>
+				<Block>
+					<Mode>Reset</Mode>
+					<Reference Type="VILib" Name="reseting.vix"/>
+					<ParameterReference Name="resXodom"/>
+					<ParameterReference Name="resYodom"/>
+				</Block>
+				<Block>
+					<Mode>Write</Mode>
+					<Reference Type="VILib" Name="writing.vix"/>
+					<ParameterReference Name="angle"/>
+					<ParameterReference Name="encChange"/>
+				</Block>
+			</Category>
+			<Category Name="Object Position">
+				<Block>
+					<Mode>Camera Config</Mode>
+					<Reference Type="VILib" Name="config.vix"/>
+					<ParameterReference Name="horizViewAngle"/>
+					<ParameterReference Name="vertViewAngle"/>
+					<ParameterReference Name="cameraWidth"/>
+					<ParameterReference Name="cameraHeight"/>
+					<ParameterReference Name="cameraTiltAngle"/>
+					<ParameterReference Name="objToLensHeight"/>
+					<ParameterReference Name="lensToMotorProjection"/>
+				</Block>
+				<Block>
+					<Mode>Position</Mode>
+					<Reference Type="VILib" Name="objectPosition.vix"/>
+					<ParameterReference Name="gyroAngle"/>
+					<ParameterReference Name="cameraX"/>
+					<ParameterReference Name="cameraY"/>
+					<ParameterReference Name="resXodom"/>
+					<ParameterReference Name="resYodom"/>
+					<ParameterReference Name="forwardShift"/>
+					<ParameterReference Name="sideShift"/>
+					<ParameterReference Name="objectX"/>
+					<ParameterReference Name="objectY"/>
+				</Block>
+			</Category>
+			<Category Name="Utilities">
+				<Block>
+					<Mode>Angle Wrap</Mode>
+					<Reference Type="VILib" Name="angleWrap.vix" />
+					<ParameterReference Name="Input" />
+					<ParameterReference Name="Output" />
+				</Block>
+				<Block>
+					<Mode>Rect Check</Mode>
+					<Reference Type="VILib" Name="rectCheck.vix" />
+					<ParameterReference Name="X" />
+					<ParameterReference Name="Y" />
+					<ParameterReference Name="leftDownX" />
+					<ParameterReference Name="leftDownY" />
+					<ParameterReference Name="rightUpX" />
+					<ParameterReference Name="rightUpY" />
+					<ParameterReference Name="isInRect" />
+				</Block>
+			</Category>
+		</PolyGroup>
+	</PolyGroups>
+</EditorDefinitions>

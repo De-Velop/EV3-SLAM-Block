@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<EditorStrings>
+	<PolyGroups ModuleName="Simultaneous Localization and Mapping">
+		<PolyGroup Name="SLAM" DisplayName="SLAM by Vladimir">
+			<Parameter Name="coefficient" DisplayName="Motor rotation to Cm"/>
+			<Parameter Name="angle" DisplayName="Angle of the robot"/>
+			<Parameter Name="encChange" DisplayName="Change in encoder"/>
+			<Parameter Name="resXodom" DisplayName="new X coordinate"/>
+			<Parameter Name="resYodom" DisplayName="new Y coordinate"/>
+			<Parameter Name="Xodom" DisplayName="X coordinate of the robot"/>
+			<Parameter Name="Yodom" DisplayName="Y coordinate of the robot"/>
+			<Parameter Name="horizViewAngle" DisplayName="Horizontal view angle of camera (in degrees)"/>
+         		<Parameter Name="vertViewAngle" DisplayName="Vertical view angle of camera (in degrees)"/>
+			<Parameter Name="cameraWidth" DisplayName="Width of camera (in pixels)"/>
+			<Parameter Name="cameraHeight" DisplayName="Height of camera (in pixels)"/>
+			<Parameter Name="cameraTiltAngle" DisplayName="Tilt angle of camera (in degrees)"/>
+			<Parameter Name="objToLensHeight" DisplayName="Height from object to camera lenses"/>
+			<Parameter Name="lensToMotorProjection" DisplayName="Distance between projections of lenses' axis and motors axis"/>
+			<Parameter Name="gyroAngle" DisplayName="Angle of gyroscope (in degrees)"/>
+			<Parameter Name="cameraX" DisplayName="X coordinate of the object on image from camera"/>
+			<Parameter Name="cameraY" DisplayName="Y coordinate of the object on image from camera"/>
+			<Parameter Name="forwardShift" DisplayName="Distance from the robot to the object on parallel axis"/>
+			<Parameter Name="sideShift" DisplayName="Distance from the robot to the object on perpendicular axis"/>
+			<Parameter Name="objectX" DisplayName="X coordinate of the object"/>
+			<Parameter Name="objectY" DisplayName="Y coordinate of the object"/>
+			<Parameter Name="Input" DisplayName="Raw Angle"/>
+			<Parameter Name="Output" DisplayName="Wrapped Angle"/>
+			<Parameter Name="X" DisplayName="X coordinate of the object"/>
+			<Parameter Name="Y" DisplayName="Y coordinate of the object"/>
+			<Parameter Name="leftDownX" DisplayName="X coordinate of the lower left corner"/>
+			<Parameter Name="leftDownY" DisplayName="Y coordinate of the lower left corner"/>
+			<Parameter Name="rightUpX" DisplayName="X coordinate of the upper right corner"/>
+			<Parameter Name="rightUpY" DisplayName="Y coordinate of the upper right corner"/>
+			<Parameter Name="isInRect" DisplayName="Is the object inside the rectangle"/>
+
+			<Category Name="Odometry" DisplayName="Odometry">
+         			<Block Mode="Odometry Config" DisplayName="Configure odometry"/>
+	 			<Block Mode="Read" DisplayName="Read coordinates"/>
+				<Block Mode="Reset" DisplayName="Reset coordinates"/>
+	 			<Block Mode="Write" DisplayName="Write coordinates"/>
+			</Category>
+			<Category Name="Object Position" DisplayName="Object Position">
+				<Block Mode="Camera Config" DisplayName="Configure parameters"/>
+				<Block Mode="Position" DisplayName="Calculate object's position"/>
+			</Category>
+			<Category Name="Utilities" DisplayName="Utilities">
+				<Block Mode="Angle Wrap" DisplayName="Wrap angle"/>
+				<Block Mode="Rect Check" DisplayName="Check if in rect"/>
+			</Category>
+		</PolyGroup>
+	</PolyGroups>
+</EditorStrings>
